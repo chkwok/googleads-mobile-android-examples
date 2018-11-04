@@ -17,6 +17,7 @@ package com.google.android.gms.example.bannerexample;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -28,7 +29,9 @@ import com.google.android.gms.ads.MobileAds;
  * Main Activity. Inflates main activity xml and child fragments.
  */
 public class MyActivity extends AppCompatActivity {
-
+    
+    private static final String TAG = "A.BannerExample";
+    
     private AdView adView;
 
     @Override
@@ -76,6 +79,8 @@ public class MyActivity extends AppCompatActivity {
     /** Called when leaving the activity */
     @Override
     public void onPause() {
+        Log.i(TAG, "onPause");
+        
         if (adView != null) {
             adView.pause();
         }
@@ -85,6 +90,8 @@ public class MyActivity extends AppCompatActivity {
     /** Called when returning to the activity */
     @Override
     public void onResume() {
+        Log.i(TAG, "onResume");
+        
         super.onResume();
         if (adView != null) {
             adView.resume();
@@ -94,6 +101,8 @@ public class MyActivity extends AppCompatActivity {
     /** Called before the activity is destroyed */
     @Override
     public void onDestroy() {
+        Log.i(TAG, "onDestroy");
+        
         if (adView != null) {
             adView.destroy();
         }
